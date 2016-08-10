@@ -1,0 +1,14 @@
+apply plugin: 'scala'
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+
+    compile 'org.scala-lang:scala-library:2.11.8'
+    compile 'org.scala-lang:scala-compiler:2.11.8'
+
+    compile 'com.jsuereth:scala-arm_2.11:1.4'
+}
