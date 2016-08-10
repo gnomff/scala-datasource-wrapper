@@ -15,6 +15,8 @@ trait CxProvider{
 
 trait TxProvider extends CxProvider{
 
+
+
   def tx[A](block: Connection => A): A ={
     cx { c =>
       c.setAutoCommit(false)
