@@ -1,21 +1,10 @@
+package org.sigurdsoftware
+
 import java.sql.Connection
-import javax.sql.DataSource
-
-import resource._
-
-import scala.util.control.{ControlThrowable, NonFatal}
+import scala.util.control.{ControlThrowable}
 import scala.util.{Failure, Success, Try}
 
-
-trait CxProvider{
-  val ds:DataSource
-
-  def cx[A](block: Connection => A): A = managed(ds.getConnection()).acquireAndGet(block(_))
-}
-
 trait TxProvider extends CxProvider{
-
-
 
   def tx[A](block: Connection => A): A ={
     cx { c =>
