@@ -25,4 +25,13 @@ publishing {
             from components.java
         }
     }
+    repositories {
+        maven {
+            credentials {
+                username ''
+                password ''
+            }
+            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+        }
+    }
 }
