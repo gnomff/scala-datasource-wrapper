@@ -1,4 +1,4 @@
-package org.sigurdsoftware
+package org.blinkmob
 
 import java.sql.Connection
 import scala.util.control.{ControlThrowable}

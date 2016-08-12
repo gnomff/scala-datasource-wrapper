@@ -1,5 +1,6 @@
 apply plugin: 'scala'
 apply plugin: 'idea'
+apply plugin: 'maven-publish'
 
 repositories {
     mavenCentral()
@@ -12,4 +13,16 @@ dependencies {
     compile 'org.scala-lang:scala-compiler:2.11.8'
 
     compile 'com.jsuereth:scala-arm_2.11:1.4'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'org.blinkmob'
+            artifactId 'scala-tx-provider'
+            version '1.0.0'
+
+            from components.java
+        }
+    }
 }
