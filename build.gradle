@@ -1,6 +1,15 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+    }
+}
+
 apply plugin: 'scala'
 apply plugin: 'idea'
-apply plugin: 'maven-publish'
+apply plugin: 'com.bmuschko.nexus'
 
 repositories {
     mavenCentral()
@@ -15,23 +24,51 @@ dependencies {
     compile 'com.jsuereth:scala-arm_2.11:1.4'
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId 'org.blinkmob'
-            artifactId 'scala-tx-provider'
-            version '1.0.0'
+version = '1.0.0'
+group = 'org.blinkmob'
+archivesBaseName = 'scala-tx-provider'
 
-            from components.java
+modifyPom {
+    project {
+        name 'scala-tx-provider'
+        description 'A trait that wraps a code block with a SQL connection'
+        url 'https://github.com/gnomff/scala-tx-provider'
+        inceptionYear '2016'
+
+
+
+        scm {
+            url 'https://github.com/gnomff/scala-tx-provider'
+            connection 'scm:https://github.com/gnomff/scala-tx-provider.git'
+            developerConnection 'scm:git@github.com:gnomff/scala-tx-provider.git'
         }
-    }
-    repositories {
-        maven {
-            credentials {
-                username ''
-                password ''
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
             }
-            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+        }
+
+        developers {
+            developer {
+                id 'gnomff'
+                name 'Tim Ecklund'
+                email 'timothy.ecklund1@gmail.com'
+            }
         }
     }
+}
+
+extraArchive {
+    sources = true
+    tests = false
+    javadoc = true
+}
+
+nexus {
+    sign = true
+    repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+    snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots'
 }
