@@ -17,6 +17,6 @@ DB.tx{implicit c=>
 ```
 
 
-# Gradle Usage:
+## Gradle Usage:
 ```// https://mvnrepository.com/artifact/org.blinkmob/scala-tx-provider
 compile group: 'org.blinkmob', name: 'scala-tx-provider', version: '1.0.0'```
