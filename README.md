@@ -15,3 +15,8 @@ DB.tx{implicit c=>
     SQL"""select 1 from stanalone_anorm_is_fun""".as(scalar[Int].single)
 }
 ```
+
+
+#Gradle Usage:
+```// https://mvnrepository.com/artifact/org.blinkmob/scala-tx-provider
+compile group: 'org.blinkmob', name: 'scala-tx-provider', version: '1.0.0'```
