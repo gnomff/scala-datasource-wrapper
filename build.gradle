@@ -21,16 +21,16 @@ dependencies {
     compile 'org.scala-lang:scala-library:2.11.8'
     compile 'org.scala-lang:scala-compiler:2.11.8'
 
-    compile 'com.jsuereth:scala-arm_2.11:1.4'
+    compile 'com.jsuereth:scala-arm_2.11:2.0'
 }
 
-version = '1.0.0'
+version = '1.0.1'
 group = 'org.blinkmob'
-archivesBaseName = 'scala-tx-provider'
+archivesBaseName = 'scala-tx-provider_2.11'
 
 modifyPom {
     project {
-        name 'scala-tx-provider'
+        name 'scala-tx-provider_2.11'
         description 'A trait that wraps a code block with a SQL connection'
         url 'https://github.com/gnomff/scala-tx-provider'
         inceptionYear '2016'
