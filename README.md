@@ -1,4 +1,4 @@
-#Scala Tx Provider
+# Scala Tx Provider
 
 CxProvider is a trait that grabs a sql connection from a datasource and wraps it in an arm managed resource
 
@@ -15,3 +15,7 @@ DB.tx{implicit c=>
     SQL"""select 1 from stanalone_anorm_is_fun""".as(scalar[Int].single)
 }
 ```
+
+
+## Gradle Usage:
+`compile group: 'org.blinkmob', name: 'scala-tx-provider', version: '1.0.0'`
